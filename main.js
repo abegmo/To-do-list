@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
             task_content_el.classList.add("content");
             // task_content_el.innerText = task;
 
-      // J2
+            // J2
             task_el.appendChild(task_content_el);
 
             const task_input_el = document.createElement("input");
@@ -52,22 +52,27 @@ window.addEventListener("load", () => {
             
             input.value = "";
 
-            task_edit_el.addEventListener( "click", () => {
-                 if (task_edit_el.innerText.toLowerCase() == "edit"){
-                  task_input_el.removeAttribute("readonly");
-                  task_input_el.focus();
-                  task_edit_el.innerText("Save");
-                 } else {
-                 
-            });
+            // Actions
 
+            task_edit_el.addEventListener("click", () => {
+                  if (task_edit_el.innerText.toLowerCase() == "edit") {
+                        task_input_el.removeAttribute("readonly");
+                        task_input_el.focus();
+                        task_edit_el.innerText = "Save";
+                  } else {
+                        task_input_el.setAttribute("readonly", "readonly");
+                        task_edit_el.innerText = "Edit";
+                  }
+  
+            })
+
+            task_delete_el.addEventListener("click", () =>{
+                  list_el.removeChild(task_el);
+            })
 
 
             // J1
-            list_el.appendChild(task_el);
-
-             
+            list_el.appendChild(task_el);   
 
       })
-
 })
